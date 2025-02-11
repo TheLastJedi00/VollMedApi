@@ -21,6 +21,7 @@ public class Medico {
     private String nome;
     private String email;
     private String crm;
+    private String telefone;
     //lista de especialidades
     @Enumerated(EnumType.STRING)
     private Especialidade especialidade;
@@ -35,5 +36,6 @@ public class Medico {
         //contrutor na classe endereço
         this.endereco = new Endereco(dados.endereco());
         this.especialidade = dados.especialidade();
+        this.telefone = dados.telefone();
     }
 }
