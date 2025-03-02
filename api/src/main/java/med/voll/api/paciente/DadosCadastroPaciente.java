@@ -26,4 +26,5 @@ public record DadosCadastroPaciente(
         @NotNull
         @Pattern(regexp = "\\d{7}")
         String rg
-){}
+){
+}
