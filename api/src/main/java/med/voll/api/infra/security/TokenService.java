@@ -33,6 +33,19 @@ public class TokenService {
         }
     }
 
+    public String getSubject(String tokenJWT) {
+        var algoritmo = Algorithm.HMAC256(secret);
+        try {
+            return JWT.require(algoritmo)
+                    .withIssuer("VollMed API")
+                    .build()
+                    .verify(tokenJWT)
+                    .getSubject();
+        } catch (JWTVerificationException exception){
+            throw new RuntimeException("Erro ao validar token JWT.");
+        }
+    }
+
     private Instant dataExpiracao() {
         return LocalDateTime.now().plusHours(2).toInstant(
                 java.time.ZoneOffset.of("-03:00"));
