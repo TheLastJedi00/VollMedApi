@@ -22,8 +22,11 @@ public class SecurityConfigurations {
         //cross-site request forgery
         return http.
                 csrf(csrf -> csrf.disable()).
-                sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)).
-                build();
+                sessionManagement(sm -> sm
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)).authorizeHttpRequests
+                        (req -> {req.requestMatchers("/login").permitAll();
+                        req.anyRequest().authenticated();})
+                .build();
     }
 
     /*public SecurityFilterChain securityFilterChain(HttpSecurity http) {
