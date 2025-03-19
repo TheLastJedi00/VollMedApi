@@ -1,14 +1,8 @@
 # VollMedApi
-Implementação da funcionalidade de agendamento de consultas:
-Adicionada a lista de validadores na classe AgendaDeConsultas.
-Alterado o método cancelar para chamar os validadores e validar o cancelamento.
-
-Criação da interface e classe de validação:
-Criada a interface ValidadorCancelamentoDeConsulta e a classe ValidadorHorarioAntecedencia para validar a antecedência do cancelamento.
-
-Resolução de conflitos de nomes:
-Renomeados os componentes para evitar conflitos de nomes entre as classes de validação de agendamento e cancelamento.
-
-Ajustes nas consultas:
-Alterado o método existsByMedicoIdAndData na interface ConsultaRepository para considerar consultas canceladas.
-Atualizada a query no método escolherMedicoAleatorioLivreNaData na interface MedicoRepository para desconsiderar consultas canceladas.
+Implementação da funcionalidade de cancelamento de consultas.
+Criada a classe DadosCancelamentoConsulta que vai gerar o id necessário para  fazer o delete da consulta agendada.
+Agora Consultas recebem status AGENDADA ou CANCELADA criando uma consição que nos permite realizar exclusão lógica.
+Na classe CancelaConsultas temos a lógica pra realizar a exclusão de consultas com algumas validações consicionais:
+-Caso se tente excluir uma consulta que já estava excluída
+-Caso o id da consulta não exista
+No ConsultaController temos o método cancelar que faz o papel de DeleteMapping devolvendo NoContent ao concluír a operação.

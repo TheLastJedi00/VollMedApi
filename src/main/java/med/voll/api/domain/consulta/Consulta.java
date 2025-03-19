@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import med.voll.api.domain.consulta.validacoes.StatusConsulta;
 import med.voll.api.domain.medico.Medico;
 import med.voll.api.domain.paciente.Paciente;
 
@@ -31,9 +32,20 @@ public class Consulta {
 
     private LocalDateTime data;
 
-    public Consulta(Medico medico, Paciente paciente, LocalDateTime data) {
+    private StatusConsulta status;
+
+    public Consulta(Medico medico, Paciente paciente, LocalDateTime data, StatusConsulta status) {
         this.medico = medico;
         this.paciente = paciente;
         this.data = data;
+        this.status = StatusConsulta.AGENDADA;
+    }
+
+    public void setStatus(StatusConsulta status) {
+        this.status = status;
+    }
+
+    public StatusConsulta getStatus() {
+        return status;
     }
 }
