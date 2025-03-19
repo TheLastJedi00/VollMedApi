@@ -7,12 +7,8 @@ import med.voll.api.domain.usuario.Usuario;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.sql.SQLOutput;
 import java.time.Instant;
 import java.time.LocalDateTime;
-import java.util.Date;
-
-import static com.auth0.jwt.JWT.*;
 
 @Service
 public class TokenService {
