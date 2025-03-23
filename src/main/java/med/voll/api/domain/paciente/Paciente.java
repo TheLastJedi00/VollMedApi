@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import med.voll.api.domain.consulta.validacoes.StatusConsulta;
 import med.voll.api.domain.endereco.Endereco;
 
 @Table(name = "pacientes")
@@ -37,7 +38,7 @@ public class Paciente {
     }
     
     public void excluir(){
-        this.ativo = true;
+        this.ativo = false;
     }
 
     public void atualizarInformacoes(@Valid DadosAtualizacaoPaciente dados) {

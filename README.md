@@ -1,3 +1,5 @@
 # VollMedApi
-Atualização de migration, agora a tabela de consultas tem coluna de status para filtrar consultas agendadas ou canceladas
-Teste de MedicoRepository de Testes está corrigido
+Banco de dados configurado para ambiente de Produção
+Teste Cadastrar2, por falhas, foi comentado temporáriamente para manter progresso. Resolução em andamento
+(Suspeitas de que envolva Mock incorreto da implmentação do cancelamento de consultas)
+Primeira Build Concluída
